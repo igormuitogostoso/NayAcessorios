@@ -1,0 +1,192 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f6f6f6;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d3a6e9; /* Cor lilás */
+    padding: 10px 20px;
+    position: relative;
+}
+
+.logo {
+    height: 40px; /* Ajuste conforme necessário */
+    margin-left: 5vw;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: #000; /* Tracinhos pretos */
+    margin: 3px 0;
+}
+
+.icons {
+    display: flex;
+    gap: 15px; /* Espaçamento entre os ícones */
+}
+
+.icons a {
+    font-size: 1.7vw;
+    color: black; /* Cor padrão dos ícones */
+    transition: color 0.3s ease; /* Efeito de transição suave */
+}
+
+.icons a:hover,
+.icons a:focus {
+    color: #fff; /* Cor ao passar o mouse ou focar no ícone */
+}
+
+.icons a:active {
+    color: #fff; /* Cor ao clicar no ícone */
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre os itens do menu */
+    position: fixed;
+    left: 0; /* Menu no lado esquerdo */
+    top: 6.8%; /* Abaixo da navbar */
+    height: calc(100vh - 60px); /* Altura até o final da tela */
+    background-color: white; /* Cor de fundo */
+    padding: 20px; /* Espaçamento interno */
+    display: none; /* Inicialmente oculto */
+    z-index: 999; /* Para ficar acima de outros elementos */
+}
+
+.nav-list.active {
+    display: flex; /* Exibe o menu quando ativo */
+}
+
+.nav-list li a {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+
+.nav-list li a:hover,
+.nav-list li a:focus{
+    color: white;
+    background-color: black;
+}
+
+.nav-list li a i {
+    margin-right: 8px; /* Espaçamento entre ícone e texto */
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Exibir botão hamburguer em telas pequenas */
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 9.4%;
+    left: 0;
+    width: 100%;
+    height: calc(90%); /* Altura restante (100% - 10%) */
+    background-color: rgba(0, 0, 0, 0.5); /* Preto com transparência */
+    display: none; /* Inicialmente oculto */
+    z-index: 998; /* Abaixo do menu, mas acima do conteúdo */
+}
+
+.overlay.active {
+    display: block; /* Exibe a camada escurecida quando ativo */
+}
+
+.container {
+    max-width: 800px;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0eb;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+    padding: 10px;
+}
+
+.card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.card-body {
+    flex: 1;
+}
+
+.verify-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 18px;
+    color: purple;
+    display: none;
+}
+
+.cart-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: purple;
+}
+
+.view-product-btn {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.view-product-btn:hover {
+    background-color: #5e005e;
+}
+
+.finalize-button {
+    width: 100%;
+    margin-top: 20px;
+    background-color: purple;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.finalize-button:hover {
+    background-color: #5e005e;
+}

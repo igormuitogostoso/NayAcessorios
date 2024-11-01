@@ -1,0 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #dbcae4;
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(../Fontes/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: popinsextra;
+    src: url(../Fontes/Poppins-ExtraLight.ttf);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d3a6e9; /* Cor lilás */
+    padding: 10px 20px;
+    position: relative;
+}
+
+.logo {
+    height: 40px; /* Ajuste conforme necessário */
+    margin-left: 5vw;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: #000; /* Tracinhos pretos */
+    margin: 3px 0;
+}
+
+.icons {
+    display: flex;
+    gap: 15px; /* Espaçamento entre os ícones */
+}
+
+.icons a {
+    font-size: 1.7vw;
+    color: black; /* Cor padrão dos ícones */
+    transition: color 0.3s ease; /* Efeito de transição suave */
+}
+
+.icons a:hover,
+.icons a:focus {
+    color: #fff; /* Cor ao passar o mouse ou focar no ícone */
+}
+
+.icons a:active {
+    color: #fff; /* Cor ao clicar no ícone */
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre os itens do menu */
+    position: fixed;
+    left: 0; /* Menu no lado esquerdo */
+    top: 6.8%; /* Abaixo da navbar */
+    height: calc(100vh - 60px); /* Altura até o final da tela */
+    background-color: white; /* Cor de fundo */
+    padding: 20px; /* Espaçamento interno */
+    display: none; /* Inicialmente oculto */
+    z-index: 999; /* Para ficar acima de outros elementos */
+}
+
+.nav-list.active {
+    display: flex; /* Exibe o menu quando ativo */
+}
+
+.nav-list li a {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+
+.nav-list li a:hover,
+.nav-list li a:focus{
+    color: white;
+    background-color: black;
+}
+
+.nav-list li a i {
+    margin-right: 8px; /* Espaçamento entre ícone e texto */
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Exibir botão hamburguer em telas pequenas */
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 9.4%;
+    left: 0;
+    width: 100%;
+    height: calc(90%); /* Altura restante (100% - 10%) */
+    background-color: rgba(0, 0, 0, 0.5); /* Preto com transparência */
+    display: none; /* Inicialmente oculto */
+    z-index: 998; /* Abaixo do menu, mas acima do conteúdo */
+}
+
+.overlay.active {
+    display: block; /* Exibe a camada escurecida quando ativo */
+}
+
+#geral{
+ margin-left: 35vw;
+ width: 55vw;
+ font-family: poppins;
+ color: #6b00a0;
+ font-size: 1.64vw;
+ justify-items: center;
+ margin-top: 4.5vw;
+}
+
+#texts{
+    font-family: poppinsextra;
+    color: black;
+    margin-top: 4vw;
+    text-align: center;
+    font-size: 1.58vw;
+}
+
+#texts span{
+    font-family: poppins;
+}
+
+.icons2 {
+    display: flex;
+    gap: 15px;
+    margin-top: 4.5vw;
+}
+.icons2 a {
+    font-size: 2.4vw; /* Tamanho dos ícones */
+    color: black; /* Cor padrão dos ícones */
+}
+.icons2 a:hover {
+    color: white; /* Cor ao passar o mouse */
+}
+
+#img1{
+    display: flex;
+    width: 18.7vw;
+    margin-top: -35vw;
+    margin-left: 11.5vw;
+}
+
+#img2{
+    display: flex;
+    width: 19.1vw;
+    margin-left: 11vw ;
+    margin-top: 0.5vw;
+}
+
+    
