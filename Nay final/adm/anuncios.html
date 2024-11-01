@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anúncios</title>
+        <!--Font Awesome-->
+        <link rel="stylesheet" href="public/assets/css/all.css">
+        <!--bootstrap css-->
+        <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
+        <!--CSS Style-->
+        <link rel="stylesheet" href="public/assets/css/anuncios.css">
+        <link rel="page" href="index.html">
+</head>
+<body>
+    <div class="d-flex">
+        <div class="sidebar d-flex flex-column">
+         <div class="logo">
+          <i class="fas fa-heart">
+          </i>
+          <span>
+           Nay Acessório
+          </span>
+         </div>
+         <a href="index.html">
+           <i class="fas fa-house">
+           </i>
+           Home
+          </a>
+         <a href="estoque.html">
+          <i class="fas fa-box">
+          </i>
+          Estoque
+         </a>
+         <a href="financas.html">
+          <i class="fas fa-dollar-sign">
+          </i>
+          Finanças
+         </a>
+         <a href="clientes.html">
+          <i class="fas fa-users">
+          </i>
+          Clientes
+         </a>
+         <a class="active" href="anuncios.html">
+          <i class="fas fa-bullhorn">
+          </i>
+          Anúncios
+         </a>
+         <a href="ad_produtos.html">
+          <i class="fas fa-plus">
+          </i>
+          Ad. Produtos
+         </a>
+         <a href="pedidos.html">
+          <i class="fas fa-shopping-cart">
+          </i>
+          Pedidos
+         </a>
+         <div class="spacer">
+         </div>
+         <a href="sair.html">
+          <i class="fas fa-sign-out-alt">
+          </i>
+          Sair
+         </a>
+        </div>
+        <div class="image-container" id="imageContainer"></div>
+            <div class="buttons">
+                <input type="file" id="imageInput" style="display: none;" accept="image/*">
+                <button class="btn btn-add" onclick="document.getElementById('imageInput').click();">+ Adicionar</button>
+                <button class="btn btn-delete" onclick="deleteSelectedImages()">Excluir</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function(event) {
+            const files = event.target.files;
+            const imageContainer = document.getElementById('imageContainer');
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.classList.add('image-wrapper');
+                    imageWrapper.onclick = function() {
+                        imageWrapper.classList.toggle('selected');
+                    };
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = 'Uploaded image';
+                    imageWrapper.appendChild(img);
+                    imageContainer.appendChild(imageWrapper);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function deleteSelectedImages() {
+            const selectedImages = document.querySelectorAll('.image-wrapper.selected');
+            selectedImages.forEach(image => image.remove());
+        }
+    </script>
+</body>
+</html>

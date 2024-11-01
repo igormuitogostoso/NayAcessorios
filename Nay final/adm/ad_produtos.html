@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad.produtos</title>
+      <!--Font Awesome-->
+      <link rel="stylesheet" href="public/assets/css/all.css">
+      <!--bootstrap css-->
+      <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
+      <!--CSS Style-->
+      <link rel="stylesheet" href="public/assets/css/ad_produtos.css">
+      <link rel="page" href="index.html">
+</head>
+<body>
+    <div class="d-flex">
+        <div class="sidebar d-flex flex-column">
+         <div class="logo">
+          <i class="fas fa-heart">
+          </i>
+          <span>
+           Nay Acessório
+          </span>
+         </div>
+         <a href="index.html">
+           <i class="fas fa-house">
+           </i>
+           Home
+          </a>
+         <a href="estoque.html">
+          <i class="fas fa-box">
+          </i>
+          Estoque
+         </a>
+         <a href="financas.html">
+          <i class="fas fa-dollar-sign">
+          </i>
+          Finanças
+         </a>
+         <a href="clientes.html">
+          <i class="fas fa-users">
+          </i>
+          Clientes
+         </a>
+         <a href="anuncios.html">
+          <i class="fas fa-bullhorn">
+          </i>
+          Anúncios
+         </a>
+         <a class="active" href="ad_produtos.html">
+          <i class="fas fa-plus">
+          </i>
+          Ad. Produtos
+         </a>
+         <a href="pedidos.html">
+          <i class="fas fa-shopping-cart">
+          </i>
+          Pedidos
+         </a>
+         <div class="spacer">
+         </div>
+         <a href="sair.html">
+          <i class="fas fa-sign-out-alt">
+          </i>
+          Sair
+         </a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header">
+            <h1>Ad. Produtos</h1>
+            <div class="icons">
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+        <div class="tabs">
+            <button class="active" id="dados-gerais-tab">DADOS GERAIS</button>
+            <button id="produtos-adicionados-tab">PRODUTOS ADICIONADOS</button>
+        </div>
+        <div class="form-container" id="dados-gerais">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="nome-produto">Nome do Produto</label>
+                    <input type="text" id="nome-produto" class="form-control">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="id-produto">ID</label>
+                    <input type="text" id="id-produto" class="form-control" readonly>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="preco-produto">Preço (R$)</label>
+                    <input type="text" id="preco-produto" class="form-control" value="R$ 00,00" oninput="validatePrice(this)">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="unidade-produto">Unidade</label>
+                    <input type="text" id="unidade-produto" class="form-control" value="0 Un." oninput="validateUnit(this)">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="categoria-produto">Categoria</label>
+                <select id="categoria-produto" class="form-control">
+                    <option>Anéis</option>
+                    <option>Brincos</option>
+                    <option>Pulseiras</option>
+                    <option>Colares</option>
+                    <option>Tornozeleiras</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="categoria-produto2">Tela:</label>
+                <select id="categoria-produto2" class="form-control">
+                    <option>Novidades</option>
+                    <option>Promoções</option>
+                    <option>Anel</option>
+                    <option>Brinco</option>
+                    <option>Pulseiras</option>
+                    <option>Colar</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="imagem-produto">Carregar Imagem</label>
+                <div class="upload-btn-wrapper">
+                    <button class="btn" onclick="document.getElementById('imagem-produto').click();"><i class="fas fa-plus"></i></button>
+                    <input type="file" id="imagem-produto" accept="image/*">
+                </div>
+            </div>
+            <button class="btn-save" onclick="saveProduct()">Salvar</button>
+        </div>
+        <div class="product-list" id="produtos-adicionados" style="display: none;">
+            <!-- Product items will be added here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('dados-gerais-tab').addEventListener('click', function() {
+            document.getElementById('dados-gerais').style.display = 'block';
+            document.getElementById('produtos-adicionados').style.display = 'none';
+            this.classList.add('active');
+            document.getElementById('produtos-adicionados-tab').classList.remove('active');
+        });
+
+        document.getElementById('produtos-adicionados-tab').addEventListener('click', function() {
+            document.getElementById('dados-gerais').style.display = 'none';
+            document.getElementById('produtos-adicionados').style.display = 'block';
+            this.classList.add('active');
+            document.getElementById('dados-gerais-tab').classList.remove('active');
+        });
+
+        function generateRandomID() {
+            return Math.floor(10000000 + Math.random() * 90000000);
+        }
+
+        function validatePrice(input) {
+            const value = input.value.replace(/[^\d,]/g, '');
+            const parts = value.split(',');
+            if (parts.length > 2) {
+                input.value = 'R$ 00,00';
+                return;
+            }
+            const integerPart = parts[0].replace(/\D/g, '');
+            const decimalPart = parts[1] ? parts[1].substring(0, 2) : '00';
+            input.value = `R$ ${integerPart},${decimalPart}`;
+        }
+
+        function validateUnit(input) {
+            const value = input.value.replace(/[^\d]/g, '');
+            input.value = `${value} Un.`;
+        }
+
+        function saveProduct() {
+            const nomeProduto = document.getElementById('nome-produto').value;
+            const idProduto = generateRandomID();
+            document.getElementById('id-produto').value = idProduto;
+            const precoProduto = document.getElementById('preco-produto').value;
+            const unidadeProduto = document.getElementById('unidade-produto').value;
+            const categoriaProduto = document.getElementById('categoria-produto').value;
+            const categoriaProduto2 = document.getElementById('categoria-produto2').value;
+            const imagemProduto = document.getElementById('imagem-produto').files[0];
+
+            if (nomeProduto && idProduto && precoProduto && unidadeProduto && categoriaProduto && categoriaProduto2 && imagemProduto) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const productList = document.getElementById('produtos-adicionados');
+                    const productItem = document.createElement('div');
+                    productItem.className = 'product-item';
+                    productItem.innerHTML = `
+                        <img src="${e.target.result}" alt="Imagem do Produto">
+                        <div>
+                            <p><strong>Nome:</strong> ${nomeProduto}</p>
+                            <p><strong>ID:</strong> ${idProduto}</p>
+                            <p><strong>Preço:</strong> ${precoProduto}</p>
+                            <p><strong>Unidade:</strong> ${unidadeProduto}</p>
+                            <p><strong>Categoria:</strong> ${categoriaProduto}</p>
+                            <p><strong>Categoria:</strong> ${categoriaProduto2}</p>
+                        </div>
+                    `;
+                    productList.appendChild(productItem);
+                };
+                reader.readAsDataURL(imagemProduto);
+
+                // Clear form fields
+                document.getElementById('nome-produto').value = '';
+                document.getElementById('id-produto').value = '';
+                document.getElementById('preco-produto').value = 'R$ 00,00';
+                document.getElementById('unidade-produto').value = '0 Un.';
+                document.getElementById('categoria-produto').value = '';
+                document.getElementById('categoria-produto2').value = '';
+                document.getElementById('imagem-produto').value = '';
+            } else {
+                alert('Por favor, preencha todos os campos e carregue uma imagem.');
+            }
+        }
+    </script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+            </body>
+            </html>

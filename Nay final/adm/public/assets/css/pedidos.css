@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+.sidebar {
+    background-color: #d8b4e2;
+    height: 100vh;
+    padding: 20px;
+    color: #000000;
+    position: fixed;
+    width: 200px;
+}
+.sidebar a {
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.sidebar a:hover {
+    background-color: #c49bd4;
+    border-radius: 5px;
+}
+.sidebar a.active {
+    background-color: #C8A2C8;
+    color: white;
+}
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+.sidebar .logo i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+.sidebar .spacer {
+    flex-grow: 1;
+}
+.content {
+    padding: 20px;
+    margin-left: 220px;
+    width: calc(100% - 220px);
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.search-bar input {
+    width: 250px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.search-bar button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.search-bar .icons {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+.search-bar .icons i {
+    margin-left: 15px;
+    font-size: 1.2em;
+}
+.status-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.status-buttons button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+.status-buttons .btn-entregue {
+    background-color: #6a1b9a;
+}
+.status-buttons .btn-andamento {
+    background-color: #9575cd;
+}
+.status-buttons .btn-preparando {
+    background-color: #b39ddb;
+}
+.order-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.order-card .user-icon {
+    font-size: 40px;
+    color: #6a1b9a;
+}
+.order-info {
+    flex: 1;
+    margin-left: 10px;
+}
+.order-info p {
+    margin: 5px 0;
+    font-size: 0.8em;
+}
+.order-actions {
+    display: flex;
+    align-items: center;
+}
+.order-actions select {
+    margin-right: 5px;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.8em;
+    background-color: #6a1b9a;
+    color: white;
+}
+.order-actions select option:nth-child(1) {
+    background-color: #6a1b9a;
+    color: white;
+}
+.order-actions select option:nth-child(2) {
+    background-color: #9575cd;
+    color: white;
+}
+.order-actions select option:nth-child(3) {
+    background-color: #b39ddb;
+    color: white;
+}
+.order-actions button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 3px 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
