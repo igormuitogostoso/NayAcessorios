@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/favoritos.css">
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <img src="../IMG/logo.png" alt="Logo" class="logo"> <!-- Substitua por sua imagem -->
+        <div class="icons">
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#"><i class="fas fa-heart"></i></a>
+            <a href="#"><i class="fas fa-user"></i></a>
+    
+    </nav>
+    
+    <ul class="nav-list" id="nav-list">
+        <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#"><i class="fas fa-shopping-bag"></i>Meus pedidos</a></li>
+        <li><a href="./sobrenos.html"><i class="fas fa-users"></i>Sobre Nós</a></li>
+        <li><a href="./cuidados.html"><i class="fas fa-lightbulb"></i> Cuidados</a></li>
+    </ul>
+    
+    
+    <div class="overlay" id="overlay"></div> <!-- Camada escurecida -->
+    
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        const overlay = document.getElementById('overlay');
+    
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            overlay.classList.toggle('active'); // Toggle da camada escurecida
+        });
+    </script>
+    
+
+<br><br>
+        
+        <div id="favorite-items" class="row"></div>
+        
+        <button class="btn finalize-button">Ir ao carrinho</button>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const items = [
+            { name: "Colar XXX", id: "XXXXX", category: "XXXXXXXXXX", price: "R$ XX,XX", image: "https://via.placeholder.com/60" },
+            { name: "Brilho XXX", id: "XXXXX", category: "XXXXXXXXXX", price: "R$ XX,XX", image: "https://via.placeholder.com/60" },
+            { name: "Anel XXX", id: "XXXXX", category: "XXXXXXXXXX", price: "R$ XX,XX", image: "https://via.placeholder.com/60" },
+            { name: "Pulseira XXX", id: "XXXXX", category: "XXXXXXXXXX", price: "R$ XX,XX", image: "https://via.placeholder.com/60" }
+        ];
+
+        function renderItems() {
+            const favoriteItems = document.getElementById("favorite-items");
+            favoriteItems.innerHTML = "";
+            items.forEach(item => {
+                const itemDiv = document.createElement("div");
+                itemDiv.classList.add("col-md-6", "mb-4");
+
+                itemDiv.innerHTML = `
+                    <div class="card position-relative">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${item.name}</h5>
+                            <p class="card-text"><strong>ID:</strong> ${item.id}</p>
+                            <p class="card-text"><strong>Categorias:</strong> ${item.category}</p>
+                            <p class="card-text"><strong>Valor Unitário:</strong> ${item.price}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="#" class="view-product-btn">Visualizar produto</a>
+                                <i class="bi bi-cart cart-icon" onclick="toggleVerified(this)"></i>
+                            </div>
+                        </div>
+                        <i class="bi bi-check-circle-fill verify-icon"></i>
+                    </div>
+                `;
+                
+                favoriteItems.appendChild(itemDiv);
+            });
+        }
+
+        function toggleVerified(cartIcon) {
+            const verifyIcon = cartIcon.closest(".card").querySelector(".verify-icon");
+            if (verifyIcon.style.display === "none" || verifyIcon.style.display === "") {
+                verifyIcon.style.display = "block";
+            } else {
+                verifyIcon.style.display = "none";
+            }
+        }
+
+        renderItems();
+    </script>
+</body>
+</html>
