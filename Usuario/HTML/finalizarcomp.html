@@ -1,0 +1,101 @@
+<?php
+    // Conexão com o banco de dados
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "loja"; // Nome do banco de dados
+
+    // Criar conexão
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Verificar conexão
+    if ($conn->connect_error) {
+        die("Falha na conexão: " . $conn->connect_error);
+    }
+
+    // Buscar dados do cliente
+    $client_id = 1; // Exemplo de ID do cliente
+    $sql_cliente = "SELECT cliente_email, cliente_nome, cliente_endereco, cliente_cep, cliente_telefone FROM cliente WHERE cliente_cod = $client_id";
+    $result_cliente = $conn->query($sql_cliente);
+
+    if ($result_cliente->num_rows > 0) {
+        // Obter dados de cada linha
+        $row_cliente = $result_cliente->fetch_assoc();
+        $email = $row_cliente["cliente_email"];
+        $nome = $row_cliente["cliente_nome"];
+        $endereco = $row_cliente["cliente_endereco"];
+        $cep = $row_cliente["cliente_cep"];
+        $telefone = $row_cliente["cliente_telefone"];
+    } else {
+        echo "0 resultados";
+    }
+
+    // Buscar dados do produto
+    $produto_id = 1; // Exemplo de ID do produto
+    $sql_produto = "SELECT cod_prod, prod_nome, prod_preco FROM produto WHERE cod_prod = $produto_id";
+    $result_produto = $conn->query($sql_produto);
+
+    if ($result_produto->num_rows > 0) {
+        // Obter dados de cada linha
+        $row_produto = $result_produto->fetch_assoc();
+        $produto_id = $row_produto["cod_prod"];
+        $produto_nome = $row_produto["prod_nome"];
+        $produto_preco = $row_produto["prod_preco"];
+    } else {
+        echo "0 resultados";
+    }
+
+    // Buscar forma de pagamento
+    $forma_pagamento = "Pix"; // Exemplo de forma de pagamento
+
+    $conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar compra</title>
+    <link rel="stylesheet" href="../CSS/finalizar_compra.css">
+</head>
+<body>
+    <div class="top-bar">
+        <i class="fas fa-heart"></i>
+        <span>Nay Acessório</span>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Finalizar compra</h1>
+                <h2>Resumo do Pedido</h2>
+            </div>
+        </div>
+        <div class="order-summary">
+            <img alt="Imagem de um anel com pequenos diamantes" height="300" width="300"/>
+            <div class="order-details">
+                <p>Enviaremos um e-mail para (<?php echo $email; ?>), com o detalhe do pedido.</p>
+                <p>ID: <?php echo $produto_id; ?></p>
+                <p>Forma de Pagamento: <?php echo $forma_pagamento; ?></p>
+                <p>Nome: <?php echo $nome; ?></p>
+                <p>Endereço: <?php echo $endereco; ?></p>
+                <p>CEP: <?php echo $cep; ?></p>
+                <p>Telefone: <?php echo $telefone; ?></p>
+                <p>Total do produto: R$ <?php echo number_format($produto_preco, 2, ',', '.'); ?></p>
+                <p>Total do frete: R$ 00,00</p>
+                <p>TOTAL A PAGAR: R$ <?php echo number_format($produto_preco, 2, ',', '.'); ?></p>
+            </div>
+        </div>
+        <form action="pedidos.php" method="post">
+            <input type="hidden" name="email" value="<?php echo $email; ?>">
+            <input type="hidden" name="nome" value="<?php echo $nome; ?>">
+            <input type="hidden" name="endereco" value="<?php echo $endereco; ?>">
+            <input type="hidden" name="cep" value="<?php echo $cep; ?>">
+            <input type="hidden" name="telefone" value="<?php echo $telefone; ?>">
+            <input type="hidden" name="produto_id" value="<?php echo $produto_id; ?>">
+            <input type="hidden" name="forma_pagamento" value="<?php echo $forma_pagamento; ?>">
+            <button type="submit" class="btn-finalize">Finalizar Compra</button>
+        </form>
+    </div>
+ </body>
+</html>

@@ -1,0 +1,114 @@
+body {
+    background-color: #d8bfd8;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+.navbar {
+    background-color: #d8bfd8;
+    padding: 10px;
+    width: 100%;
+}
+.navbar-brand {
+    font-size: 18px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.navbar-brand i {
+    margin-right: 5px;
+}
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+}
+.container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1100px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.btn-custom {
+    background-color: #800080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.btn-custom:hover {
+    background-color: #660066;
+}
+.order-summary {
+    font-size: 18px;
+}
+.order-summary p {
+    margin: 10px 0;
+}
+.order-summary .total {
+    font-weight: bold;
+}
+.order-summary .amount {
+    float: right;
+}
+.img-container {
+    text-align: center;
+    height: 300px; /* Ajuste a altura conforme necessário */
+    background-color: #f0f0f0; /* Cor de fundo do placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-button {
+    color: black;
+    text-decoration: none;
+}
+.finalize-button-container {
+    text-align: right;
+    margin-top: 20px;
+}
+.info-container {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: 20px;
+    flex-grow: 1;
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .order-summary {
+        font-size: 16px;
+    }
+    .img-container {
+        height: 200px; /* Ajuste a altura conforme necessário */
+    }
+    .finalize-button-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .btn-custom {
+        width: 100%;
+    }
+    h4 {
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .info-container {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}

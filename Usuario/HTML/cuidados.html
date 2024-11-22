@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuidados</title>
+    <link rel="stylesheet" href="../CSS/cuidados.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <img src="../IMG/logo.png" alt="Logo" class="logo"> <!-- Substitua por sua imagem -->
+        <div class="icons">
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#"><i class="fas fa-heart"></i></a>
+            <a href="#"><i class="fas fa-user"></i></a>
+        </div>
+    </nav>
+
+    <ul class="nav-list" id="nav-list">
+        <li><a href="../index.html"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="#"><i class="fas fa-shopping-bag"></i>Meus pedidos</a></li>
+        <li><a href="./sobrenos.html"><i class="fas fa-users"></i>Sobre Nós</a></li>
+        <li><a href="./cuidados.html"><i class="fas fa-lightbulb"></i> Cuidados</a></li>
+    </ul> 
+
+    <div id="geral">
+        <h2 id="ttt">Dicas de cuidados com os seus acessórios :</h2>
+        <div id="texts">
+            <h4><span>1-</span> Retire seus acessórios antes de usar perfumes e cosméticos,<br> aguarde alguns minutos para recolocá-los;</h4>
+            <h4><span>2- </span> Evite contato direto com produtos de limpeza e afins;</h4>
+            <h4><span>3-</span> Evite usar seus acessórios na praia/piscina, pois o sal e<br> o cloro podem corroer o produto;</h4>
+            <h4><span>4-</span> Guarde seus acessórios embalados separadamente. <br>Assim você conserva o brilho e o tom.</h4>
+        </div>
+            <div class="icons2">
+                <a href="https://api.whatsapp.com/send?phone=5511933173783" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://l.wl.co/l?u=https%3A%2F%2Finstagram.com%2Fnaay.acessorio%3Figshid%3DYmMyMTA2M2Y%3D" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+    </div>
+
+    <img src="../IMG/primeira.png" alt="" id="img1">
+    <img src="../IMG/segunda.png" alt="" id="img2">
+
+    <div class="overlay" id="overlay"></div> <!-- Camada escurecida -->
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+        const overlay = document.getElementById('overlay');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            overlay.classList.toggle('active'); // Toggle da camada escurecida
+        });
+    </script>
+</body>
+</html>

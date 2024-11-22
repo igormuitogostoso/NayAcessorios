@@ -1,0 +1,66 @@
+body {
+    background-color: #d8b4e2; /* Cor de fundo da página */
+    font-family: Arial, sans-serif; /* Fonte da página */
+}
+
+.container {
+    background-color: white; /* Cor de fundo do contêiner */
+    border-radius: 20px; /* Bordas arredondadas do contêiner */
+    padding: 2rem; /* Espaçamento interno do contêiner */
+    max-width: 95%; /* Largura máxima do contêiner */
+    margin: auto; /* Centraliza o contêiner na página */
+}
+
+.order-summary {
+    display: flex; /* Exibe como flexbox */
+    align-items: flex-start; /* Alinha os itens no início (parte superior) */
+    margin-bottom: 20px; /* Espaçamento inferior entre as informações e o status */
+}
+
+.order-summary img {
+    margin-right: 20px; /* Espaçamento à direita da imagem */
+}
+
+.order-details {
+    display: flex; /* Exibe como flexbox */
+    justify-content: space-between; /* Espaça entre os elementos */
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.product-info {
+    flex: 1; /* Ocupa 1 parte do espaço disponível */
+    margin-right: 20px; /* Espaçamento à direita do produto */
+}
+
+.customer-info {
+    flex: 1; /* Ocupa 1 parte do espaço disponível */
+    text-align: left; /* Alinha o texto à esquerda */
+    margin-right: 20px; /* Espaçamento à direita da informação do cliente */
+}
+
+.status-and-button {
+    display: flex; /* Exibe como flexbox */
+    flex-direction: column; /* Coloca o status e o botão em coluna */
+    align-items: flex-start; /* Alinha itens à esquerda */
+    margin-top: 40px; /* Espaçamento superior para afastar do restante */
+}
+
+.finalize-form {
+    display: flex; /* Exibe como flexbox */
+    justify-content: flex-start; /* Alinha o botão à esquerda */
+    margin-top: 10px; /* Espaçamento superior para o botão */
+}
+
+.btn-finalize {
+    background-color: #6c757d; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border-radius: 20px; /* Bordas arredondadas do botão */
+    padding: 0.5rem 1rem; /* Espaçamento interno do botão */
+    border: none; /* Remove a borda padrão do botão */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+.btn-finalize:hover {
+    background-color: #5a6268; /* Cor de fundo do botão ao passar o mouse */
+}

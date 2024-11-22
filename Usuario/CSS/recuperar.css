@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #D3A4E3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: none;
+    background-color: white;
+    border-radius: 2vw; /* Bordas arredondadas usando vw */
+    padding: 4vw; /* Usando vw para o padding da div */
+    text-align: center;
+    box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1);
+    width: 35vw; 
+    max-width: 400px; 
+}
+
+.container.active {
+    display: block;
+}
+
+h1 {
+    font-size: 2.5vw; /* Usando vw para o tamanho da fonte */
+    margin-bottom: 1vw; /* Espaço inferior */
+    color: #333;
+}
+
+p {
+    font-size: 1.5vw; /* Tamanho da fonte em vw */
+    margin-bottom: 2vw; /* Espaço inferior em vw */
+    color: #555;
+}
+
+#iii{
+    margin-top: 2vw;
+}
+
+#aa{
+    margin-top: 2vw;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 1.5vw; /* Usando vw para o padding */
+    margin-bottom: 2vw; /* Espaço inferior */
+    border: none;
+    border-radius: 3vw; /* Bordas arredondadas usando vw */
+    background-color: #C4C4C4;
+    font-size: 1.5vw; /* Tamanho da fonte em vw */
+    color: #333;
+    height: 3.5vw; /* Altura do campo em vw */
+}
+
+button {
+    width: 20vw;
+    max-width: 62%;
+    padding: 0.8vw; /* Padding do botão em vw */
+    border: none;
+    border-radius: 3vw;
+    background-color: #A56CC1;
+    color: white;
+    text-align: center;
+    font-size: 1.5vw;
+    cursor: pointer;
+    height: 3.5vw; /* Altura do botão em vw */
+    margin-top: 1vw; /* Espaço superior do botão em vw */
+}
+
+button:hover {
+    background-color: #8A57A0;
+}
+
+.link {
+    font-size: 1.2vw; /* Tamanho da fonte em vw */
+    margin-top: 2vw; /* Espaço superior */
+    color: #555;
+}
+
+.link a {
+    color: #A56CC1;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+#ol{
+    text-decoration: none;
+}
+
+#oo{
+    margin-top: 2vw;
+}

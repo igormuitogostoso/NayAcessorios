@@ -1,0 +1,143 @@
+ /* Estilos gerais do corpo */
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+/* Estilos da barra lateral */
+.sidebar {
+    background-color: #D3A6E9;
+    height: 100vh;
+    padding: 20px;
+    color: #000000;
+    position: fixed;
+    width: 200px;
+}
+.sidebar a {
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.sidebar a:hover {
+    background-color: #c49bd4;
+    border-radius: 5px;
+}
+.sidebar a.active {
+    background-color: #C8A2C8;
+    color: white;
+}
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+.sidebar .logo i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+.sidebar .spacer {
+    flex-grow: 1;
+}
+/* Estilos do conteúdo principal */
+.content {
+    padding: 20px;
+    margin-left: 220px;
+    width: calc(100% - 220px);
+}
+/* Estilos da barra de navegação */
+.navbar {
+    background-color: #e6d5f7;
+    padding: 10px;
+}
+.navbar input {
+    border-radius: 20px;
+    border: none;
+    padding: 5px 10px;
+    width: 300px;
+}
+.navbar .fa-search, .navbar .fa-bell {
+    font-size: 20px;
+    margin-left: 10px;
+}
+.navbar .fa-bell {
+    position: relative;
+}
+.navbar .fa-bell .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ff69b4;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 12px;
+}
+/* Estilos das categorias */
+.categories {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+.categories div {
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #e6d5f7;
+    width: 100px;
+}
+.categories div.active {
+    background-color: #d1b3f0;
+}
+/* Estilos dos itens */
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item {
+    background-color: #e6d5f7;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+}
+.item img {
+    width: 50px;
+    height: 50px;
+}
+.item .price {
+    margin-top: 5px;
+    font-weight: bold;
+}
+.item .quantity {
+    margin-top: 5px;
+}
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .navbar input {
+        width: 100%;
+    }
+    .categories {
+        flex-wrap: wrap;
+    }
+    .categories div {
+        width: 45%;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,247 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #dbcae4;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d3a6e9; /* Cor lilás */
+    padding: 10px 20px;
+    position: relative;
+}
+
+.logo {
+    height: 40px; /* Ajuste conforme necessário */
+    margin-left: 5vw;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: #000; /* Tracinhos pretos */
+    margin: 3px 0;
+}
+
+.icons {
+    display: flex;
+    gap: 15px; /* Espaçamento entre os ícones */
+}
+
+.icons a {
+    font-size: 1.7vw;
+    color: black; /* Cor padrão dos ícones */
+    transition: color 0.3s ease; /* Efeito de transição suave */
+}
+
+.icons a:hover,
+.icons a:focus {
+    color: #fff; /* Cor ao passar o mouse ou focar no ícone */
+}
+
+.icons a:active {
+    color: #fff; /* Cor ao clicar no ícone */
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre os itens do menu */
+    position: fixed;
+    left: 0; /* Menu no lado esquerdo */
+    top: 6.8%; /* Abaixo da navbar */
+    height: calc(100vh - 60px); /* Altura até o final da tela */
+    background-color: white; /* Cor de fundo */
+    padding: 20px; /* Espaçamento interno */
+    display: none; /* Inicialmente oculto */
+    z-index: 999; /* Para ficar acima de outros elementos */
+}
+
+.nav-list.active {
+    display: flex; /* Exibe o menu quando ativo */
+}
+
+.nav-list li a {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+
+.nav-list li a:hover,
+.nav-list li a:focus{
+    color: white;
+    background-color: black;
+}
+
+.nav-list li a i {
+    margin-right: 8px; /* Espaçamento entre ícone e texto */
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Exibir botão hamburguer em telas pequenas */
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 9.4%;
+    left: 0;
+    width: 100%;
+    height: calc(90%); /* Altura restante (100% - 10%) */
+    background-color: rgba(0, 0, 0, 0.5); /* Preto com transparência */
+    display: none; /* Inicialmente oculto */
+    z-index: 998; /* Abaixo do menu, mas acima do conteúdo */
+}
+
+.overlay.active {
+    display: block; /* Exibe a camada escurecida quando ativo */
+}
+
+.cart-container {
+    max-width: 900px; /* Define a largura máxima do contêiner */
+    margin: 0 auto; /* Centraliza o contêiner */
+  }
+
+  .cart-header {
+    font-size: 1.5rem; /* Tamanho da fonte do cabeçalho */
+    font-weight: bold; /* Deixa o texto em negrito */
+    padding: 10px 0; /* Espaçamento interno no cabeçalho */
+    text-align: center; /* Alinha o texto ao centro */
+  }
+
+  .cart-grid {
+    display: grid; /* Usa grid para layout */
+    grid-template-columns: repeat(2, 1fr); /* Dois itens por linha */
+    gap: 30px; /* Aumenta o espaço entre os itens */
+  }
+
+  .cart-item {
+    background-color: #f5f5f5; /* Cor de fundo dos itens */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 20px; /* Aumenta o espaçamento interno do item */
+    display: flex; /* Usa flexbox para layout interno */
+    align-items: flex-start; /* Alinha itens no topo */
+    justify-content: space-between; /* Espaça itens igualmente */
+    position: relative; /* Permite posicionamento absoluto de elementos internos */
+    width: 100%; /* Define a largura total do item */
+  }
+
+  .cart-item img {
+    width: 80px; /* Aumenta a largura da imagem */
+    height: 80px; /* Aumenta a altura da imagem */
+    object-fit: cover; /* Cobre o espaço da imagem */
+    border-radius: 4px; /* Bordas arredondadas da imagem */
+  }
+
+  .cart-info {
+    flex-grow: 1; /* Permite que o contêiner de informações cresça */
+    padding-left: 20px; /* Aumenta o espaçamento à esquerda das informações */
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Coloca os elementos em coluna */
+    justify-content: space-between; /* Espaça elementos dentro de cart-info */
+  }
+
+  .item-name {
+    font-weight: bold; /* Deixa o nome do item em negrito */
+    margin-bottom: 5px; /* Espaço abaixo do nome do item */
+  }
+
+  .quantity-control {
+    display: flex; /* Usa flexbox para layout dos botões de quantidade */
+    align-items: center; /* Alinha os botões ao centro */
+    margin-top: 10px; /* Espaçamento superior */
+  }
+
+  /* Botões de quantidade sem fundo */
+  .quantity-btn {
+    background: none; /* Remove fundo do botão */
+    color: #000; /* Cor do texto do botão */
+    border: none; /* Remove borda do botão */
+    font-size: 20px; /* Tamanho da fonte do botão */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+  }
+
+  /* Ícone de check, visível apenas quando o checkbox é marcado */
+  .check-circle {
+    position: absolute; /* Permite posicionamento absoluto */
+    top: -8.5px; /* Ajusta a posição do ícone */
+    left: -6px; /* Alinha o ícone à esquerda */
+    font-size: 25px; /* Tamanho do ícone */
+    color: #d97ce6; /* Cor do ícone */
+    display: none; /* Esconde o ícone por padrão */
+  }
+
+  .checkbox-container input[type="checkbox"]:checked ~ .check-circle {
+    display: inline; /* Mostra o ícone quando o checkbox é marcado */
+  }
+
+  .checkbox-container {
+    position: relative; /* Permite posicionamento relativo */
+    margin-left: auto; /* Alinha o contêiner à direita */
+  }
+
+  .checkbox-container input[type="checkbox"] {
+    cursor: pointer; /* Muda o cursor ao passar sobre o checkbox */
+  }
+
+  .finalizar-compra {
+    background-color: #800080; /* Cor de fundo do botão de finalizar compra */
+    color: #fff; /* Cor do texto do botão */
+    font-weight: bold; /* Deixa o texto em negrito */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    border-radius: 5px; /* Bordas arredondadas do botão */
+    text-align: center; /* Alinha texto ao centro */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    text-decoration: none; /* Remove sublinhado do texto do link */
+    display: block; /* Torna o link um bloco */
+    max-width: 200px; /* Largura máxima do botão */
+    margin: 20px auto 0; /* Margens para centralizar */
+  }
+
+  /* Placeholder de itens vazios */
+  .cart-item.empty {
+    justify-content: center; /* Centraliza o texto em itens vazios */
+    color: #ccc; /* Cor do texto dos itens vazios */
+    font-style: italic; /* Estilo itálico para o texto */
+  }
+
+  .link-icon {
+    cursor: pointer; /* Muda o cursor ao passar sobre o ícone */
+    color: #000; /* Cor do ícone */
+    font-size: 18px; /* Tamanho do ícone */
+    display: block; /* Torna o link um bloco */
+    margin-top: 10px; /* Espaçamento superior */
+  }
+
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .cart-grid {
+      grid-template-columns: 1fr; /* Um item por linha em telas menores */
+    }
+
+    .check-circle {
+      top: auto; /* Remove a posição superior */
+      bottom: -20px; /* Ajusta a posição inferior */
+      left: 10px; /* Alinha o ícone à esquerda */
+    }
+
+    .link-icon {
+      left: 50%; /* Centraliza horizontalmente */
+      bottom: -30px; /* Ajusta a posição inferior */
+      transform: translateX(-50%); /* Ajusta para centralizar completamente */
+    }
+  }
